@@ -1,0 +1,49 @@
+
+// academy fonts
+// @import url('https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&family=Cairo:wght@200..1000&family=Tajawal:wght@200;300;400;500;700;800;900&display=swap');
+
+@font-face {
+    font-family: "Noto Kufi Regular";
+    src: url('fonts/Noto_Kufi_Arabic/static/NotoKufiArabic-Regular.ttf') format("truetype");
+}
+@font-face {
+    font-family: "Noto Kufi Bold";
+    src: url('fonts/Noto_Kufi_Arabic/static/NotoKufiArabic-Bold.ttf') format("truetype");
+}
+
+$font-primary: "Almarai", sans-serif;
+$font-regular:"Noto Kufi Regular","Open sans","Arial";
+$font-bold:"Noto Kufi Bold","Open sans","Arial";
+$font-size:1.6rem;
+$boxshadow-color:#ccc;
+$color_links_hover:#E43f21;
+$color_primary:#616571;
+//size page
+$x-large:1200px;
+$large:1024px;
+$medium:950px;
+$small:750px;
+$x-small:460px;
+
+//size title
+@mixin htags($factor:1rem){
+    h1{
+        font-size: 2*$factor;
+    }
+    h2{
+        font-size: 1.6*$factor;
+    }
+    h3{
+        font-size: 1.2*$factor;
+    }
+    h4{
+        font-size: 1.1*$factor;
+    }
+    h5{
+        font-size: $factor;
+    }
+    h6{
+        font-size: 0.9*$factor;
+    }
+    
+}

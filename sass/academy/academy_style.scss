@@ -1,0 +1,255 @@
+@import './academy_variables';
+// heading fonts
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+  font-family: $font-primary;
+  
+}
+p,li{
+    font-family: $font-regular;
+}
+
+@include htags();
+
+a{
+    text-decoration: none;
+}
+// header style
+.site{
+overflow: hidden;
+}
+.site-header{
+  display: flex;
+  margin: 0 auto;
+  
+}
+.site-branding{
+  font-family: $font-primary;
+  margin: auto 1.6rem;
+  float: left;
+  display: flex;
+
+  a{
+    text-decoration: none;
+  }
+}
+.site-title,
+.site-description
+{
+  white-space:nowrap;
+  flex-direction: column;
+  margin: 0.5rem;
+}
+.site-description{
+  float: right;
+  padding: 0.5rem;
+  font-style: italic;
+  vertical-align: bottom;
+}
+.menu-toggle{
+  display: none;
+}
+.main-navigation{
+  margin: auto 1rem;
+  float: left;
+  text-align: end;
+  width: 100%;
+  
+  .menu,
+  .sub-menu{
+    padding: 0;
+    margin: 0;
+
+  }
+  #primary-menu{
+    display: inline-block;
+    align-items: center;
+    width: 100%;
+  }
+  li{
+    text-align: center;
+    font-family: $font-primary;
+    font-size: $font-size *0.7;
+    display: inline-block;
+    position: relative;
+    float: none;
+    padding: 0.4rem;
+    margin: 0 1rem;
+  }
+  ul li ul{
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  padding-left: 0;
+  left: 0;
+  display: none;
+  min-width: 250px;
+  text-align: left;
+  box-shadow: 0px 3px 5px -1px $boxshadow-color;
+  transition: all 0.5 ease;
+  z-index: 999;
+}
+ul li:hover >ul,
+ul li ul:hover
+{
+  visibility: visible;
+  opacity: 1;
+  display: block;
+}
+ul li ul li{
+  clear: both;
+  width: 100%;
+  text-align:left;
+  padding: 10px;
+  border-style: none;
+  background-color: white;
+  margin: 0;
+}
+ul ul ul{
+  transform: translateX(-100%);
+  left: -10px;
+  top: 15px;
+  margin: 0;
+}
+ul li ul li a:hover{
+  padding-left: 10px;
+  border-left: 2px solid $color_links_hover;
+  transition: all 0.5s ease;
+}
+}
+// header responsive
+@media(max-width:$x-large){
+  @include htags(0.8rem);
+
+  .site-branding{
+    margin:auto 1.4rem;
+  }
+  .size-title{
+    font-size: 1.8rem;
+  }
+  .size-title,
+  .site-description
+  {
+    margin: 0.4rem;
+  }
+  .site-description{
+    padding: 0.4rem;
+  }
+  .main-navigation{
+    margin: auto 0.9rem;
+    li{
+      font-size: $font-size*0.6;
+      padding: 0.3rem;
+    }
+    li li {
+      width: 9rem;
+    }
+  }
+}
+@media(max-width:$large){
+  @include htags(0.7rem);
+
+  .site-branding{
+    margin:auto 1.2rem;
+  }
+  .size-title{
+    font-size: 1.6;
+  }
+  .size-title,
+  .site-description
+  {
+    margin: 0.3rem;
+  }
+  .site-description{
+    padding: 0.3rem;
+  }
+  .main-navigation{
+    margin: auto 0.8rem;
+    li li {
+      width: 8rem;
+    }
+  }
+}
+@media(max-width:$medium){
+  @include htags(0.6rem);
+
+  .site-branding{
+    margin:auto 1rem;
+  }
+  .size-title{
+    font-size: 1.4rem;
+    margin: 0.3rem;
+  }
+  .site-description{
+   display: none;
+  }
+  .site-header{
+    li{
+      font-size: $font-size*0.7;
+    }
+    ul ul{
+      position: relative;
+      float: none;
+      width: 100%;
+      background-color: white;
+
+      li{
+        background-color: white;
+        a{
+          background-color: white;
+          color:$color_primary;
+        }
+      }
+    }
+    ul li:hover >ul,
+    ul li ul:hover
+    {
+        border-bottom: 1px solid $color_primary;
+
+        li{
+          display: block;
+        }
+    }
+  }
+}
+@media(max-width:$small){
+  .site-branding{
+    margin: auto 0.8rem;
+  }
+  .site-title{
+    font-size: 1.2rem;
+    margin: 0.3rem;
+  }
+  .main-navigation{
+    margin: auto 0.6rem;
+  }
+  ul ul{
+    width: 7rem;
+    ul{
+      right: 7rem;
+    }
+  }
+  li{
+    font-size: $font-size*0.6;
+    padding: 0.2rem;
+    margin: 0 0.2rem;
+
+    li{
+      width: 7rem;
+    }
+  }
+  
+}
+@media(max-width:$x-small){
+  .site-branding{
+    margin: auto 0.8rem;
+  }
+  .site-title{
+    font-size: 1rem;
+    margin: 0.3rem;
+  }
+}
