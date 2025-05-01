@@ -532,3 +532,69 @@ code {
       margin: 0; }
   .widget ul {
     margin: 0; } }
+
+.site-header,
+.site-footer {
+  background-color: #616571; }
+
+.site-main,
+.widget-area {
+  background-color: #fff; }
+
+.site-header a,
+a:visited,
+a:hover {
+  color: #fff; }
+
+.site-title,
+.site-description {
+  color: #fff; }
+  .site-title a,
+  .site-description a {
+    color: #fff; }
+
+.main-navigation li:hover, .main-navigation li:focus,
+.main-navigation li:hover > a,
+.main-navigation li:focus > a {
+  color: #E43f21;
+  pointer-events: initial; }
+
+.main-navigation ul li ul {
+  background-color: #fff; }
+  .main-navigation ul li ul li a {
+    color: #616571 !important; }
+  .main-navigation ul li ul li:hover {
+    color: #E43f21 !important;
+    border-left: 2px solid #E43f21; }
+
+.site-main a,
+.site-main a:visited,
+.widget-area a,
+.widget-area a:visited {
+  color: #616571; }
+
+.site-main a:hover,
+.widget-area a:hover {
+  color: #E43f21; }
+
+h1, h2, h3, h4, h5, h6 {
+  color: #616571; }
+
+p {
+  color: #666; }
+
+.entry-meta span {
+  background-color: #f4f6f8;
+  color: #616571; }
+  .entry-meta span a {
+    color: #616571; }
+    .entry-meta span a:hover {
+      color: #E43f21; }
+
+.entry-footer {
+  border-bottom: 0.2rem solid #f2f2f2; }
+  .entry-footer span {
+    border-top: 0.2rem solid #f2f2f2; }
+
+.site-info {
+  color: #fff; }
