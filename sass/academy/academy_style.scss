@@ -667,3 +667,109 @@ p{
 .site-info{
   color:$color_header_links;
 }
+
+// icons
+.menu-item-has-children::after,
+.page_item_has_children::after{
+margin: 0.2rem;
+position: absolute;
+font-family:$font-awesome;
+content: "\f0d7";
+vertical-align: middle;
+color: $color_header_links;
+right: -20px;
+top: 50%;
+transform: translateY(-50%);
+}
+.page_item_has_children,
+.menu-item-has-children{
+  ul li.page_item_has_children::after,
+  ul li.menu-item-has-children::after{
+    color: $color_links_hover;
+    right: 15px;
+  }
+}
+.menu-item-has-children:hover,
+.page_item_has_children:hover{
+  cursor: pointer;
+  &::after{
+    color: $color_links_hover !important;
+  }
+}
+.edit-link a::before{
+  unicode-bidi: isolate;
+  font-family: $font-awesome;
+  content: '\f044';
+  margin: 0.2rem;
+}
+.comments-link a::before{
+  unicode-bidi: isolate;
+  font-family: $font-awesome;
+  content: '\f075';
+  margin: 0.2rem;
+}
+.reply a::after{
+  unicode-bidi: isolate;
+  font-family: $font-awesome;
+  content: '\f064';
+  margin: 0.2rem;
+}
+.tags-links a::before{
+  unicode-bidi: isolate;
+  font-family: $font-awesome;
+  content: '\f02c';
+  margin: 0.2rem;
+}
+.cart-links a::before{
+  unicode-bidi: isolate;
+  font-family: $font-awesome;
+  content: '\f07c';
+  margin: 0.2rem;
+}
+.wp-block-latest-posts li::before{
+  unicode-bidi: isolate;
+  font-family: $font-awesome;
+  content: '\f15b';
+  margin: 0.2rem;
+}
+.wp-block-latest-comments li{
+  article,footer{
+    display: inline;
+  }
+  &::before{
+    unicode-bidi: isolate;
+    font-family: $font-awesome;
+    content: '\f075';
+    margin: 0.2rem;
+  }
+}
+.wp-block-archives li::before{
+  unicode-bidi: isolate;
+  font-family: $font-awesome;
+  content: '\f187';
+  margin: 0.2rem;
+}
+.wp-block-categories li::before{
+  unicode-bidi: isolate;
+  font-family: $font-awesome;
+  content: '\f07c';
+  margin: 0.2rem;
+}
+.widget_meta li::before{
+  unicode-bidi: isolate;
+  font-family: $font-awesome;
+  content: '\f0c1';
+  margin: 0.2rem;
+}
+.nav-next a::after{
+  unicode-bidi: isolate;
+  font-family: $font-awesome;
+  content: '\f0a8';
+  margin: 0.2rem;
+}
+.nav-previous a::before{
+  unicode-bidi: isolate;
+  font-family: $font-awesome;
+  content: '\f0a9';
+  margin: 0.2rem;
+}
