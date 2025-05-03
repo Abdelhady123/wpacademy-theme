@@ -33,20 +33,29 @@
 
 	<div class="entry-content">
 		<?php
-		the_content(
-			sprintf(
-				wp_kses(
-					/* translators: %s: Name of current post. Only visible to screen readers */
-					__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'wpacademy' ),
-					array(
-						'span' => array(
-							'class' => array(),
-						),
-					)
-				),
-				wp_kses_post( get_the_title() )
-			)
-		);
+		//اضهار المقتطف بدلن من النص في صفحة ال archive
+		if($post->post_excerpt && is_archive())
+		{
+			the_excerpt();
+			print('<a href="'.esc_url(get_permalink()).'">'.__('Continue Reading','academy').'</a>');
+		}
+		else{
+			the_content(
+				sprintf(
+					wp_kses(
+						/* translators: %s: Name of current post. Only visible to screen readers */
+						__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'wpacademy' ),
+						array(
+							'span' => array(
+								'class' => array(),
+							),
+						)
+					),
+					wp_kses_post( get_the_title() )
+				)
+			);
+		}
+		
 
 		wp_link_pages(
 			array(
