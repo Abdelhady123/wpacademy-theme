@@ -773,3 +773,245 @@ transform: translateY(-50%);
   content: '\f0a9';
   margin: 0.2rem;
 }
+// ***
+// site bar menu
+// ***
+.fa-bars,
+.fa-close{
+  display: none !important;
+}
+@media(max-width:$medium){
+  .fa-bars,
+  .fa-close{
+  position: absolute;
+  display: inline-block !important;
+  padding: 0.6rem;
+  right: 0;
+  left: 85%;
+  margin: 0;
+  color: $color_header_links;
+  font-size: $font-size*0.9;
+
+  &:hover,
+  &:focus
+  {
+    cursor: pointer;
+  }
+}
+  .menu-bar{
+    display: none;
+  }
+  #primary-menu{
+    margin: 0;
+    margin-top: 52px;
+    border: 1px dotted white;
+  }
+  .menu-bar ul{
+    display: block;
+    position: fixed;
+    background-color: $color_primary;
+    padding: 0;
+    width: 15rem;
+    height: 100%;
+    left: 0;
+    overflow: auto;
+
+    li{
+      display: list-item;
+      padding: 10px 0;
+      border-bottom: 1px dotted $color_header_links;
+      background-color: $color_primary;
+      text-align: center;
+      font-family: $font-primary;
+      font-size: $font-size*0.6;
+      line-height: 2;
+      position: relative;
+      &:hover,
+      &:focus,
+      &:hover>a,
+      &:focus>a
+      {
+         pointer-events: initial;
+         background-color: $color_links_hover;
+         color: $color_header_links !important;
+         padding-bottom: 0;
+      }
+    }
+    ul{
+      display: none;
+      padding: 0;
+      overflow: hidden;
+      li{
+        display: none;
+        background-color: white;
+        a{
+          color: $color_primary !important;
+
+        }
+      }
+    }
+    ul.childopen{
+      display: block;
+      position: relative;
+      margin: 0;
+      li{
+        display: list-item;
+        position: relative;
+      }
+    }
+  }
+  .page_item_has_children,
+  .menu-item-has-children{
+    &::after{
+      vertical-align: middle;
+      color: $color_header_links;
+      right: 20px;
+      top: 25px;
+      transform: rotateY(-50%);
+
+    }
+    &:hover::after,
+    &:focus::after{
+      color: $color_header_links !important;
+    }
+    ul li.page_item_has_children::after,
+    ul li.menu-item-has-children::after{
+      color: $color_primary;
+      right: 20px;
+    }
+  }
+}
+
+// footer social menu
+.user_text{
+  display: none;
+}
+nav.social ul{
+  display: flex;
+  position: relative;
+  margin: 0;
+  padding: 0.5rem 0 0;
+  justify-content: space-around;
+  li{
+    display: inline-block;
+    position: relative;
+    font-family: $font-awesome;
+    font-size: $font-size;
+    list-style: none;
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid;
+    background-color: $color_primary;
+    a{
+      color:#fff;
+      &:hover{
+        color: $color_links_hover;
+      }
+    }
+    a[href*="facebook.com"]::before{
+      content: '\f09a';
+    }
+    a[href*="twitter.com"]::before{
+      content: '\f099';
+    }
+    a[href*="instagram.com"]::before{
+      content: '\f16d';
+    }
+    a[href*="linkedin.com"]::before{
+      content: '\f0e1';
+    }
+  }
+}
+// footer sidebar widget
+.footer-sidebar{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  overflow: hidden;
+  .widget{
+    display: block;
+    padding: 0.5rem;
+    margin: 0;
+    border:0;
+    word-wrap: break-word;
+    word-break: break-word;
+    width: 25%;
+    ul{
+      padding: 0;
+      margin: 0;
+      text-align: start;
+      font-size: $font-size * 0.6;
+    }
+    &:only-child{
+      width: 100%;
+      text-align: center;
+
+    }
+  }
+  h2,a,.widget li a{
+    color: $color_header_links;
+  }
+  a:hover{
+    color: $color_links_hover;
+  }
+
+}
+@media(max-width:$small){
+  .footer-sidebar{
+    .widget{
+      width: 50%;
+    }
+  }
+}
+@media(max-width:$x-small){
+  .footer-sidebar{
+    .widget{
+      width: 100%;
+    }
+  }
+}
+//social widget
+.social-icons{
+  display: block;
+}
+.wpacademy_widget{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  font-size: $font-size *2;
+  a{
+    padding: 5rem;
+    margin: 0.5rem;
+    color: #fff;
+
+    &:hover{
+      color: #fff;
+    }
+
+  }
+}
+.facebook{
+  background-color: #3b5998;
+  padding: 10px;
+  border-radius: 18%;
+
+}
+.twitter{
+  background-color: #000000;
+  padding: 10px;
+  border-radius: 18%;
+
+}
+.linkedin{
+  background-color: #007bb5;
+  padding: 10px;
+  border-radius: 18%;
+
+}
+.instagram{
+  background-color: #f46f30;
+  padding: 10px;
+  border-radius: 18%;
+
+}

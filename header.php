@@ -18,6 +18,11 @@
 	<link rel="profile" href="https://gmpg.org/xfn/11">
 
 	<?php wp_head(); ?>
+	<style>
+		.fa-solid:hover{
+			cursor: pointer;
+		}
+	</style>
 </head>
 
 <body <?php body_class(); ?>>
@@ -46,8 +51,14 @@
 		</div><!-- .site-branding -->
 
 		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'wpacademy' ); ?></button>
-			<?php
+      <h1 class="screen-reader-text">
+         <?php
+		 esc_html_e('primary Menu','academy');
+		 ?>
+	  </h1>
+	  <i class="fa-solid fa-bars" id="navicon"></i>
+	  <div class="menu-bar" id="menu-bar" aria-control="primary-menu" aria-expanded="false">
+	  <?php
 			wp_nav_menu(
 				array(
 					'theme_location' => 'menu-1',
@@ -55,5 +66,6 @@
 				)
 			);
 			?>
+	  </div>
 		</nav><!-- #site-navigation -->
 	</header><!-- #masthead -->

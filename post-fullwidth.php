@@ -27,6 +27,10 @@ get_search_form();
     grid-column-end: 4;
     text-align: center;
   }
+  a:hover{
+    color:rgb(5, 64, 241);
+  }
+  
 </style>
 
   <div class="content-area">

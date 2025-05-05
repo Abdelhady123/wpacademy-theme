@@ -52,6 +52,11 @@ function wpacademy_setup() {
 			'menu-1' => esc_html__( 'Primary', 'wpacademy' ),
 		)
 	);
+	register_nav_menus(
+		array(
+			'menu-2' => esc_html__( 'Social', 'wpacademy' ),
+		)
+	);
 
 	/*
 		* Switch default core markup for search form, comment form, and comments
@@ -131,6 +136,17 @@ function wpacademy_widgets_init() {
 			'after_title'   => '</h2>',
 		)
 	);
+	register_sidebar(
+		array(
+			'name'          => esc_html__( 'footer Area', 'wpacademy' ),
+			'id'            => 'footer-sidebar',
+			'description'   => esc_html__( 'Add widgets here.', 'wpacademy' ),
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		)
+	);
 }
 add_action( 'widgets_init', 'wpacademy_widgets_init' );
 
@@ -142,7 +158,8 @@ function wpacademy_scripts() {
 	wp_style_add_data( 'wpacademy-style', 'rtl', 'replace' );
 	wp_enqueue_style('google-fonts','//fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&family=Cairo:wght@200..1000&family=Tajawal:wght@200;300;400;500;700;800;900&display=swap');
 	wp_enqueue_style('font-awesome','https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css');
-	wp_enqueue_script( 'wpacademy-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
+	// wp_enqueue_script( 'wpacademy-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
+	wp_enqueue_script( 'wpacademy-navigation', get_template_directory_uri() . '/js/academy_nav.js', array('jquery'), _S_VERSION, true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -190,6 +207,9 @@ require get_template_directory() . '/inc/customizer.php';
 /**
  * Load Jetpack compatibility file.
  */
+
+// load academy widget
+require get_template_directory() . '/wpacademy_widget.php';
 if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
