@@ -184,7 +184,61 @@ function wpacademy_resource_hints($urls,$relation_type){
 	}
 add_filter('wp_resource_hints', 'wpacademy_resource_hints', 1, 2);
 
+// **********
+//إضافة عنصر واجهة جديد لصفحة تحكم المسؤول
+// **********
+function academy_info(){
+	$current_user=wp_get_current_user();
+
+	echo'
+	<ul style="background-color:#def5ff;font-size:1rem;border:0.4rem dashed #f2f2f2;text-align:center;font-weight:bold;">
+      <li>'. __('User Name:','academy'). $current_user->user_login .'</li>
+	  <li> '.__('Blog Name:','academy'). get_bloginfo('name').'</li>
+		  <li> '.__('language:','academy'). get_bloginfo('language').'</li>
+	  <li>'.__('Theme Folder:','academy').get_bloginfo('stylesheet_directory') . '</li>
+	 <li>'.__('RTL Status:','academy').(is_rtl() == 1 ? 'true' :'false') .'</li>
+	  </ul>
+	';
+}
+
+function wpacademy_add_to_dashboard(){
+	wp_add_dashboard_widget('admin_dashboard_widget',__('site info','academy'),'academy_info');
+}
+add_action('wp_dashboard_setup','wpacademy_add_to_dashboard',1);
+
+//******* */
+//change login logo
+//*********** */
+function wpacademy_login_logo(){
+	?>
+	<style type="text/css">
+		#login h1 a,.login h1 a{
+			background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/assets/images/logo_64x64.png)
+		}
+	</style>
+	<?php
+}
+add_action('login_enqueue_scripts', 'wpacademy_login_logo');
+
+//******* */
+//change admain bar logo
+//*********** */
+function admin_bar_logo(){
+	?>
+	<style type="text/css">
+		#wpadminbar #wp-admin-bar-wp-logo > .ab-item .ab-icon:before {
+			background-image: url('<?php echo get_stylesheet_directory_uri(); ?>/assets/images/logo_26x26.png');
+			background-position: center;
+			background-repeat: no-repeat;
+			color: rgba(0, 0, 0, 0);
+		}
+	</style>
+	<?php
+}
+add_action('wp_before_admin_bar_render', 'admin_bar_logo');
+
 /**
+ * 
  * Implement the Custom Header feature.
  */
 require get_template_directory() . '/inc/custom-header.php';
