@@ -231,6 +231,7 @@ function admin_bar_logo(){
 			background-position: center;
 			background-repeat: no-repeat;
 			color: rgba(0, 0, 0, 0);
+			
 		}
 	</style>
 	<?php
@@ -268,3 +269,7 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
+require get_template_directory()
+ . '/dashborad.php';
+require get_template_directory()
+. '/info.php';
