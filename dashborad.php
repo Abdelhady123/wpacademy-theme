@@ -54,7 +54,7 @@ class Wpacademy_Dashboard_Page {
             <?php endif; ?>
 
             <a href="https://academy.hsoub.com" target="_blank">
-                <img src="<?php echo get_template_directory_uri() . "/assets/images/logo_160x160.png"; ?>" alt="" style="width:160px; height:16px">
+                <img src="<?php echo get_template_directory_uri() . "/assets/images/logo_160x160.png"; ?>" alt="" style="width:160px; height:86px">
             </a>
         </div>
 
@@ -67,6 +67,13 @@ class Wpacademy_Dashboard_Page {
         ?>
 
         <div style="border-bottom:0.5rem solid #cccccc; padding-top:1rem; margin:0; padding-bottom:0;"></div>
+      <form action="options.php" method="post">
+        <?php
+        settings_fields('academy_settings');
+        do_settings_sections('academy_Options');
+        submit_button();
+        ?>
+      </form>
     </div>
     <?php
 }
@@ -155,6 +162,102 @@ private function render_item_info($item){
         $user_id = get_current_user_id();
         update_user_meta($user_id,'academy_dismiss_status',0);
     }
+
+    //  register settings for theme options
+    public function academy_theme_settings(){
+       register_setting('academy_settings','copyright');
+       register_setting('academy_settings','author');
+       register_setting('academy_settings','authorurl');
+       register_setting('academy_settings','admin_logo_url');
+
+       add_settings_section(
+        'academy_settings',
+        __('Academy Theme Options','academy'),
+        array($this,'academy_callback'),
+        'academy_Options'
+       );
+
+        add_settings_field(
+            'copyright',
+            __('Copyrights','academy'),
+            array($this,'copyright_callback'),
+             'academy_Options',
+              'academy_settings'
+        );
+         add_settings_field(
+            'author',
+            __('Author Name:','academy'),
+            array($this,'author_callback'),
+             'academy_Options',
+              'academy_settings'
+        );
+         add_settings_field(
+            'authorurl',
+            __('Author website:','academy'),
+            array($this,'authorurl_callback'),
+             'academy_Options',
+             'academy_settings'
+        );
+        add_settings_field(
+            'admin_logo_url',
+            __('login page logo:','academy'),
+            array($this,'admin_logo_url_callback'),
+             'academy_Options',
+             'academy_settings'
+        );
+
+    }
+    //callback function for academy theme section
+    public function academy_callback(){
+        ?>
+        <h3><?php echo __('Admin dashboard footer','academy'); ?></h3>
+       <?php
+    }
+
+    public function copyright_callback($args){
+        ?>
+          <input type="text" name="copyright" id="copyright" value='<?php echo get_option('copyright'); ?>'>        
+        <?php
+        }
+        
+    public function author_callback($args){
+        ?>
+          <input type="text" name="author" id="author" value='<?php echo get_option('author'); ?>'>        
+        <?php
+        }
+         public function authorurl_callback($args){
+        ?>
+          <input type="text" name="authorurl" id="authorurl" value='<?php echo get_option('authorurl'); ?>'>        
+        <?php
+        }
+        //callback function for Admin logo URL field
+        public function admin_logo_url_callback($args){
+            $default_image=get_template_directory_uri().'/assets/images/logo_160x160.png';
+            $admin_logo_url = get_option('admin_logo_url',$default_image);
+            ?>
+            <input type="hidden" name="admin_logo_url" id="admin_logo_url" value='<?php echo esc_attr($admin_logo_url);?>'>
+            <br>
+            <img id="preview" style="width:115px;height:115px;"
+             data-src="<?php echo esc_attr($default_image);?>"
+              src="<?php echo esc_attr($admin_logo_url); ?>">
+              <br>
+              <button class="upload_image_button button">
+                <?php echo __('Upload','academy'); ?>
+              </button>
+              <button class="remove_image_button button">
+               &times;
+            </button>
+            <?php
+            }
+
+            /**
+             * enqueue admin scripts
+             */
+            public function academy_load_admin_scripts(){
+                wp_enqueue_media();
+                wp_enqueue_script('academy-admin',get_template_directory_uri().'/js/admin.js',array('jquery'));
+
+            }
     // register dashboard page
     public function register_dashboard_page(){
         add_menu_page(
@@ -171,6 +274,8 @@ private function render_item_info($item){
         add_action('admin_menu', array($this, 'register_dashboard_page'));
         add_action('admin_notices', array($this, 'display_admin_notice'));
         add_action('switch_theme', array($this, 'theme_change'));
+        add_action('admin_init', array($this, 'academy_theme_settings'));
+       add_action('admin_enqueue_scripts', array($this, 'academy_load_admin_scripts'));
 
     }   
 }

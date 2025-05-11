@@ -210,10 +210,11 @@ add_action('wp_dashboard_setup','wpacademy_add_to_dashboard',1);
 //change login logo
 //*********** */
 function wpacademy_login_logo(){
+	$admin_logo_url=get_option('admin_logo_url');
 	?>
 	<style type="text/css">
 		#login h1 a,.login h1 a{
-			background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/assets/images/logo_64x64.png)
+			background-image: url(<?php echo $admin_logo_url; ?>);
 		}
 	</style>
 	<?php
@@ -238,10 +239,24 @@ function admin_bar_logo(){
 }
 add_action('wp_before_admin_bar_render', 'admin_bar_logo');
 
+
+//change footer
+function wpacademy_change_footer(){
+	$copyright = get_option( 'copyright', '© 2025' );
+$author = get_option( 'author', 'اسم المؤلف' );
+$authorurl = get_option( 'authorurl', '#' );
+ echo '<span class="description">'.__($copyright,'academy'). '<a href="'.__($authorurl).'">'.__($author,'academy').'</a></span>';
+}
+
+
+//admin panel footer
+add_filter('admin_footer_text','wpacademy_change_footer');
 /**
  * 
  * Implement the Custom Header feature.
  */
+
+ 
 require get_template_directory() . '/inc/custom-header.php';
 
 /**
