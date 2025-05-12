@@ -37,7 +37,7 @@
 		if($post->post_excerpt && is_archive())
 		{
 			the_excerpt();
-			print('<a href="'.esc_url(get_permalink()).'">'.__('Continue Reading','academy').'</a>');
+			print('<a href="'.esc_url(get_permalink()).'">'.__('Continue Reading','wpacademy').'</a>');
 		}
 		else{
 			the_content(

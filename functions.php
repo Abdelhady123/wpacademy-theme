@@ -192,17 +192,17 @@ function academy_info(){
 
 	echo'
 	<ul style="background-color:#def5ff;font-size:1rem;border:0.4rem dashed #f2f2f2;text-align:center;font-weight:bold;">
-      <li>'. __('User Name:','academy'). $current_user->user_login .'</li>
-	  <li> '.__('Blog Name:','academy'). get_bloginfo('name').'</li>
-		  <li> '.__('language:','academy'). get_bloginfo('language').'</li>
-	  <li>'.__('Theme Folder:','academy').get_bloginfo('stylesheet_directory') . '</li>
-	 <li>'.__('RTL Status:','academy').(is_rtl() == 1 ? 'true' :'false') .'</li>
+      <li>'. __('User Name:','wpacademy'). $current_user->user_login .'</li>
+	  <li> '.__('Blog Name:','wpacademy'). get_bloginfo('name').'</li>
+		  <li> '.__('language:','wpacademy'). get_bloginfo('language').'</li>
+	  <li>'.__('Theme Folder:','wpacademy').get_bloginfo('stylesheet_directory') . '</li>
+	 <li>'.__('RTL Status:','wpacademy').(is_rtl() == 1 ? 'true' :'false') .'</li>
 	  </ul>
 	';
 }
 
 function wpacademy_add_to_dashboard(){
-	wp_add_dashboard_widget('admin_dashboard_widget',__('site info','academy'),'academy_info');
+	wp_add_dashboard_widget('admin_dashboard_widget',__('site info','wpacademy'),'academy_info');
 }
 add_action('wp_dashboard_setup','wpacademy_add_to_dashboard',1);
 
@@ -245,7 +245,7 @@ function wpacademy_change_footer(){
 	$copyright = get_option( 'copyright', '© 2025' );
 $author = get_option( 'author', 'اسم المؤلف' );
 $authorurl = get_option( 'authorurl', '#' );
- echo '<span class="description">'.__($copyright,'academy'). '<a href="'.__($authorurl).'">'.__($author,'academy').'</a></span>';
+ echo '<span class="description">'.__($copyright,'wpacademy'). '<a href="'.__($authorurl).'">'.__($author,'wpacademy').'</a></span>';
 }
 
 

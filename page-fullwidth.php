@@ -57,7 +57,7 @@ endwhile; // End of the loop.
 </main><!-- #main -->
 
 <div class="recent-uploaded">
-    <h2><?php echo __('Recent Uploaded Images','academy') ?></h2>
+    <h2><?php echo __('Recent Uploaded Images','wpacademy') ?></h2>
 <?php
 $attachments=get_posts(array(
     'post_type'=>'attachment',

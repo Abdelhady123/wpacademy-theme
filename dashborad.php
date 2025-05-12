@@ -172,35 +172,35 @@ private function render_item_info($item){
 
        add_settings_section(
         'academy_settings',
-        __('Academy Theme Options','academy'),
+        __('Academy Theme Options','wpacademy'),
         array($this,'academy_callback'),
         'academy_Options'
        );
 
         add_settings_field(
             'copyright',
-            __('Copyrights','academy'),
+            __('Copyrights','wpacademy'),
             array($this,'copyright_callback'),
              'academy_Options',
               'academy_settings'
         );
          add_settings_field(
             'author',
-            __('Author Name:','academy'),
+            __('Author Name:','wpacademy'),
             array($this,'author_callback'),
              'academy_Options',
               'academy_settings'
         );
          add_settings_field(
             'authorurl',
-            __('Author website:','academy'),
+            __('Author website:','wpacademy'),
             array($this,'authorurl_callback'),
              'academy_Options',
              'academy_settings'
         );
         add_settings_field(
             'admin_logo_url',
-            __('login page logo:','academy'),
+            __('login page logo:','wpacademy'),
             array($this,'admin_logo_url_callback'),
              'academy_Options',
              'academy_settings'
@@ -210,7 +210,7 @@ private function render_item_info($item){
     //callback function for academy theme section
     public function academy_callback(){
         ?>
-        <h3><?php echo __('Admin dashboard footer','academy'); ?></h3>
+        <h3><?php echo __('Admin dashboard footer','wpacademy'); ?></h3>
        <?php
     }
 
@@ -242,7 +242,7 @@ private function render_item_info($item){
               src="<?php echo esc_attr($admin_logo_url); ?>">
               <br>
               <button class="upload_image_button button">
-                <?php echo __('Upload','academy'); ?>
+                <?php echo __('Upload','wpacademy'); ?>
               </button>
               <button class="remove_image_button button">
                &times;
@@ -261,7 +261,7 @@ private function render_item_info($item){
     // register dashboard page
     public function register_dashboard_page(){
         add_menu_page(
-           "Academy",__("Academy","academy"),
+           'wpacademy',__('wpacademy','wpacademy'),
             'manage_options',
             $this->page_slug,
             array($this, 'render_page'),

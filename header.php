@@ -53,7 +53,7 @@
 		<nav id="site-navigation" class="main-navigation">
       <h1 class="screen-reader-text">
          <?php
-		 esc_html_e('primary Menu','academy');
+		 esc_html_e('primary Menu','wpacademy');
 		 ?>
 	  </h1>
 	  <i class="fa-solid fa-bars" id="navicon"></i>

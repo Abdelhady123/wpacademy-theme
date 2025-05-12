@@ -49,7 +49,7 @@ function wpacademy_customize_register($wp_customize)
 
     // 2. عنصر تحكم اللون
     $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'header_links_color', array(
-        'label'    => __('Header Links Color', 'academy'),
+        'label'    => __('Header Links Color', 'wpacademy'),
         'section'  => 'colors',
         'settings' => 'header_links_color'
     )));
@@ -62,7 +62,7 @@ function wpacademy_customize_register($wp_customize)
         'sanitize_callback' => 'sanitize_hex_color',
     ));
     $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'content_links_color', array(
-        'label'    => __('Content Links Color', 'academy'),
+        'label'    => __('Content Links Color', 'wpacademy'),
         'section'  => 'colors',
         'settings' => 'content_links_color'
     )));
@@ -75,7 +75,7 @@ function wpacademy_customize_register($wp_customize)
         'sanitize_callback' => 'sanitize_hex_color',
     ));
     $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'header_bg_color', array(
-        'label'    => __('Header Background Color', 'academy'),
+        'label'    => __('Header Background Color', 'wpacademy'),
         'section'  => 'colors',
         'settings' => 'header_bg_color'
     )));
@@ -88,7 +88,7 @@ function wpacademy_customize_register($wp_customize)
         'sanitize_callback' => 'sanitize_hex_color',
     ));
     $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'footer_bg_color', array(
-        'label'    => __('Footer Background Color', 'academy'),
+        'label'    => __('Footer Background Color', 'wpacademy'),
         'section'  => 'colors',
         'settings' => 'footer_bg_color'
     )));
@@ -96,13 +96,13 @@ function wpacademy_customize_register($wp_customize)
     $wp_customize->add_panel(
         'site_footer_panel',
         array(
-            'title' =>__('Site Footer','academy'),
+            'title' =>__('Site Footer','wpacademy'),
             'priority' => 220,
 
         )
         );
     $wp_customize->add_section('footer_copyright_text',array(
-        'title' =>__('Academy Footer Text','academy'),
+        'title' =>__('Academy Footer Text','wpacademy'),
          'panel' =>'site_footer_panel',
          'priority' => 1
     ));
@@ -115,7 +115,7 @@ function wpacademy_customize_register($wp_customize)
         )
         );
         $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'footer_text', array(
-            'label'    => __('Footer text', 'academy'),
+            'label'    => __('Footer text', 'wpacademy'),
             'type'  =>'textarea',
             'section'  => 'footer_copyright_text',
             'settings' => 'footer_text'
